@@ -45,17 +45,11 @@ TARGET_USES_64_BIT_BINDER := true
 # Kernel
 TARGET_KERNEL_ARCH := arm64
 TARGET_KERNEL_HEADER_ARCH := arm64
+TARGET_PREBUILT_KERNEL := $(LOCAL_PATH)/Image.gz-dtb
 
-ifeq ($(FOX_BUILD_FULL_KERNEL_SOURCES),1)
-TARGET_KERNEL_APPEND_DTB := true
-BOARD_KERNEL_IMAGE_NAME := Image.gz-dtb
-TARGET_KERNEL_CONFIG := kenzo_defconfig
-TARGET_KERNEL_SOURCE := kernel/xiaomi/kenzo
-else
-TARGET_PREBUILT_KERNEL := $(LOCAL_PATH)/prebuilt/Image.gz-dtb
-PRODUCT_COPY_FILES += \
-    $(TARGET_PREBUILT_KERNEL):kernel
-endif
+
+
+
 # end DJ9
 
 # Boot image
@@ -121,3 +115,23 @@ TW_IGNORE_MISC_WIPE_DATA := true
 AB_OTA_UPDATER := false
 LZMA_RAMDISK_TARGETS := recovery
 #
+#Ignore Missing Dependencies
+ALLOW_MISSING_DEPENDENCIES=true
+
+
+#SHRP_Variables
+SHRP_PATH := device/xiaomi/kenzo
+SHRP_MAINTAINER := kaushalsitapara
+SHRP_DEVICE_CODE := kenzo
+SHRP_EDL_MODE := 1
+SHRP_EXTERNAL := /external_sd
+SHRP_INTERNAL := /sdcard
+SHRP_OTG := /usbotg
+SHRP_REC := /dev/block/bootdevice/by-name/recovery
+SHRP_REC_TYPE := Treble
+SHRP_DEVICE_TYPE := A-Only
+SHRP_FLASH := 1
+#SHRP_FONP_1 := /sys/class/leds/led:torch_0/brightness
+#SHRP_FONP_2 := /sys/class/leds/led:torch_1/brightness
+#SHRP_FONP_3 := /sys/class/leds/led:switch/brightness
+#SHRP_FLASH_MAX_BRIGHTNESS := 200
