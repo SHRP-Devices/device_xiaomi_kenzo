@@ -69,7 +69,7 @@ TW_IGNORE_MISC_WIPE_DATA := true
 TW_HAS_EDL_MODE := true
 AB_OTA_UPDATER := false
 LZMA_RAMDISK_TARGETS := recovery
-
+TW_USE_TOOLBOX := true
 # Encryption support
 TW_INCLUDE_CRYPTO := true
 TARGET_HW_DISK_ENCRYPTION := true
